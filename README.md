@@ -13,3 +13,9 @@ How to :
 -Easy to configure
 -It is indeed simple. Why else would i call it "esx_simpleroulette".
 -I really do not know what else to type here.
+
+
+Modified and made from:
+
+https://github.com/KarpoVelho/esx_coinflip
+
