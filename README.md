@@ -4,9 +4,11 @@ Simple red/black/green roulette system for ESX framework
 
 How to :
 
--Place your bet on Red / Black / Green 
-  -win x2 on red&black
-  -win x14 on green
+-Place your bet on Red / Black / Green  
+
+-win x2 on Red&Black
+
+-win x14 on Green
 
 -Easy to configure
 -It is indeed simple. Why else would i call it "esx_simpleroulette".
