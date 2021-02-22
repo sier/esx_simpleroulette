@@ -20,7 +20,7 @@ Citizen.CreateThread(function()
 	local coords = GetEntityCoords(PlayerPedId())
 		if (GetDistanceBetweenCoords(coords, coordx, coordy, coordz, true) < 5) then
 			sleep = false
-			ESX.ShowHelpNotification('Press ~INPUT_PICKUP~ to play ~g~Roulette')
+			ESX.ShowHelpNotification(_U('pickup'))
 				if IsControlJustPressed(0, 38) then
 					bettaus22()
 				end
@@ -37,7 +37,7 @@ end)
 
 function bettaus22()
 	maxLength = 5 --Maximum characters on betting (5 chars = 99999)
-	AddTextEntry('FMMC_KEY_TIP8', "Insert ~y~Bet")
+	AddTextEntry('FMMC_KEY_TIP8', _U('insertbet'))
 	DisplayOnscreenKeyboard(1, "FMMC_KEY_TIP8", "", "", "", "", "", maxLength)
 	blockinput = true
 	while UpdateOnscreenKeyboard() ~= 1 and UpdateOnscreenKeyboard() ~= 2 do
@@ -51,7 +51,7 @@ function bettaus22()
 	if osallistumismaksu ~= nil and osallistumismaksu > 0 then
 
        maxLength = 11
-    AddTextEntry('FMMC_KEY_TIP8', "~r~Red ~b~|~m~ Black ~b~| ~g~Green")
+    AddTextEntry('FMMC_KEY_TIP8', _U('colors'))
     DisplayOnscreenKeyboard(1, "FMMC_KEY_TIP8", "", "", "", "", "", maxLength)
     blockinput = true
 
@@ -60,10 +60,10 @@ function bettaus22()
     end
     local vari = GetOnscreenKeyboardResult()
     Wait(150)
-    if vari == 'Red' or vari == 'Black' or vari == 'Green' then
+    if vari == _U('ifred') or vari == _U('ifblack') or vari == _U('ifgreen') then
     TriggerServerEvent('slerbaruletti:bettaa', osallistumismaksu, vari)
 	else
-	ESX.ShowNotification("~r~Invalid input")
+	ESX.ShowNotification(_U('invalid'))
     end
 	Wait(12000)
 	blockinput = false

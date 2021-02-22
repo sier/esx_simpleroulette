@@ -9,48 +9,48 @@ AddEventHandler('slerbaruletti:bettaa', function(osallistumismaksu, vari)
     local roll = math.random(0,37)
     if xPlayer.getAccount('bank').money >= osallistumismaksu then
         xPlayer.removeAccountMoney('bank', tonumber(osallistumismaksu))
-		TriggerClientEvent('esx:showNotification', _source, 'Your bet: ~g~' .. osallistumismaksu .."$")
+		TriggerClientEvent('esx:showNotification', _source, _U('bet') .. osallistumismaksu .."$")
 		Wait(3000)
-		TriggerClientEvent('esx:showNotification', _source, '~m~Ball is ~w~rolling...')
+		TriggerClientEvent('esx:showNotification', _source, _U('rolling'))
 		Wait(3000)
-		TriggerClientEvent('esx:showNotification', _source, '~o~You spin me right round...')
+		TriggerClientEvent('esx:showNotification', _source, _U('spin'))
 		Wait(2600)
-		TriggerClientEvent('esx:showNotification', _source, '~m~Ball is ~w~slowing down...')
+		TriggerClientEvent('esx:showNotification', _source, _U('slowing'))
 		Wait(2000)
-        if vari == 'Red' then
+        if vari == _U('ifred') then
 			if roll >= 18 and roll <= 36 then
-				TriggerClientEvent('esx:showNotification', _source, '~m~The ball ~w~ stopped on color: ~r~~h~Red~h~~w~.')
+				TriggerClientEvent('esx:showNotification', _source, _U('red'))
 				Wait(200)
 				maksu = osallistumismaksu*2
 				xPlayer.addAccountMoney('bank', maksu) 
-				TriggerClientEvent('esx:showNotification', _source, '~g~You won: ' ..maksu..'$')
+				TriggerClientEvent('esx:showNotification', _source, _U('won') ..maksu..'$')
 			else
-				TriggerClientEvent('esx:showNotification', _source, 'The ball stopped on color: ~h~~u~ Black~h~~w~.')
-				TriggerClientEvent('esx:showNotification', _source, "~r~You lose!")
+				TriggerClientEvent('esx:showNotification', _source, _U('stoppedblack'))
+				TriggerClientEvent('esx:showNotification', _source, _U('lose'))
 			end
-        elseif vari == 'Black' then
+        elseif vari == _U('ifblack') then
 			if roll >= 1 and roll <= 17 then
-			TriggerClientEvent('esx:showNotification', _source, 'The ball stopped on color: ~u~~h~Black~h~~w~.')
+			TriggerClientEvent('esx:showNotification', _source, _U('black'))
 			Wait(200)
 			maksu = osallistumismaksu*2
             xPlayer.addAccountMoney('bank', maksu) 
-            TriggerClientEvent('esx:showNotification', _source, '~g~You won: ' ..maksu..'$')
+            TriggerClientEvent('esx:showNotification', _source, _U('won') ..maksu..'$')
         else
-			TriggerClientEvent('esx:showNotification', _source, 'The ball stopped on color: ~h~~r~Red~h~~w~.')
-            TriggerClientEvent('esx:showNotification', _source, "~r~You lose.")
+			TriggerClientEvent('esx:showNotification', _source, _U('stoppedred'))
+            TriggerClientEvent('esx:showNotification', _source, _U('lose'))
         end
-        elseif vari == 'Green' then
+        elseif vari == _U('ifgreen') then
 			if roll == 37 then
-				TriggerClientEvent('esx:showNotification', _source, 'The ball stopped on color: ~g~~h~Green~h~~w~.')
+				TriggerClientEvent('esx:showNotification', _source, _U('green'))
 				Wait(200)
 				maksu = osallistumismaksu*14
 				xPlayer.addAccountMoney('bank', maksu) 
-				TriggerClientEvent('esx:showNotification', _source, '~g~You won: ' ..maksu..'$')
+				TriggerClientEvent('esx:showNotification', _source, _U('won') ..maksu..'$')
 			else
-				TriggerClientEvent('esx:showNotification', _source, 'The ball stopped on color: ~h~~r~Red~h~~w~.~n~ ~r~You lose, again. ~w~Better luck next time')
+				TriggerClientEvent('esx:showNotification', _source, _U('losefinal'))
         end
 	end
 	else
-		TriggerClientEvent('esx:showNotification', _source, 'You do not have enough money in bank.')
+		TriggerClientEvent('esx:showNotification', _source, _U('enoughmoney'))
     end
 end)

@@ -10,7 +10,7 @@ How to :
 
 -win x14 on Green
 
--Easy to configure
+-Easy to configure (now with localization!)
 -It is indeed simple. Why else would i call it "esx_simpleroulette".
 -I really do not know what else to type here.
 
